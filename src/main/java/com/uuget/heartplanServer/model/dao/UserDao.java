@@ -1,5 +1,7 @@
 package com.uuget.heartplanServer.model.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.uuget.heartplanServer.model.entity.User;
 
 public interface UserDao {
@@ -12,6 +14,13 @@ public interface UserDao {
 
     /**
      *
+     * @param openid wechat openid
+     * @return User
+     */
+    User getByWechatOpenid(String openid);
+
+    /**
+     *
      * @param name 用户名
      * @return User
      */
@@ -19,9 +28,9 @@ public interface UserDao {
 
     /**
      *
-     * @param openid wechat openid
+     * @param name 用户名
+     * @param pwd  密码
      * @return User
      */
-    User getByWechatOpenid(String openid);
-
+    User getByUsernameAndPwd(@Param("name") String name, String pwd);
 }

@@ -19,4 +19,13 @@ public class UserServiceImpl implements UserService {
     return UserDao.getById(id);
   }
 
+  @Override
+  public User getUserByWechatOpenid(String wechatOpenid) {
+    return UserDao.getByWechatOpenid(wechatOpenid);
+  }
+
+  @Override
+  public User getByUsernameAndPwd(String username, String password) {
+    return UserDao.getByUsernameAndPwd(username, password);
+  }
 }

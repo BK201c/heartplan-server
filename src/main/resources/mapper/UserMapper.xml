@@ -3,19 +3,41 @@
 <mapper namespace="com.uuget.heartplanServer.model.dao.UserDao">
     <resultMap id="UserMap" type="com.uuget.heartplanServer.model.entity.User">
         <result property="id" column="id" jdbcType="INTEGER" />
+        <result property="username" column="username" jdbcType="VARCHAR" />
+        <result property="wechat_openid" column="wechat_openid" jdbcType="VARCHAR" />
+        <result property="password" column="password" jdbcType="INTEGER" />
         <result property="name" column="name" jdbcType="VARCHAR" />
         <result property="age" column="age" jdbcType="INTEGER" />
-        <result property="phone" column="age" jdbcType="INTEGER" />
+        <result property="phone" column="phone" jdbcType="INTEGER" />
         <result property="sex" column="sex" jdbcType="VARCHAR" />
     </resultMap>
 
+    <sql id="BaseColumnList">
+        id,name,age,phone,sex,password,wechat_openid,username
+    </sql>
+
     <select id="getById" resultMap="UserMap">
-        select * from user where id = #{id}
-    </select>
-    <select id="getByName" resultMap="UserMap">
-        select * from user where name like concat('%',#{name},'%')
+        select 
+        <include refid="BaseColumnList"/> 
+        from user 
+        where id = #{id}
     </select>
     <select id="getByWechatOpenid" resultMap="UserMap">
-        select * from user where wechat_openid = #{wechat_openid}
+        select
+        <include refid="BaseColumnList"/> 
+        from user 
+        where wechat_openid = #{wechat_openid}
+    </select>
+    <select id="getByName" resultMap="UserMap">
+        select 
+        <include refid="BaseColumnList"/> 
+        from user 
+        where name like concat('%',#{name},'%')
+    </select>
+    <select id="getByUsernameAndPwd" resultMap="UserMap">
+        select
+        <include refid="BaseColumnList"/>
+        from user 
+        where username = #{username} and password = #{password}
     </select>
 </mapper>

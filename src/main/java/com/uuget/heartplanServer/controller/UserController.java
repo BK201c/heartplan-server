@@ -24,15 +24,24 @@ public class UserController {
   @Resource
   private UserService userService;
 
-  @GetMapping("/x")
-  public String hello() {
-    return "Hey, Spring Boot 的 Hello World !";
-  }
-
   @GetMapping("/user/{id}")
   @ApiOperation(value = "获取用户信息", notes = "根据id查询")
   public Result<User> getUserById(@PathVariable("id") Integer id) {
     User user = userService.getUserById(id);
+    return Result.success(user);
+  }
+
+  @GetMapping("/user/{wechat_openid}")
+  @ApiOperation(value = "获取用户信息", notes = "根据微信openid查询")
+  public Result<User> getUserByWechatOpenid(@PathVariable("wechat_openid") String wechatOpenid) {
+    User user = userService.getUserByWechatOpenid(wechatOpenid);
+    return Result.success(user);
+  }
+
+  @PostMapping("/user/login")
+  @ApiOperation(value = "用户登录", notes = "根据用户名和密码查询")
+  public Result<User> getByUsernameAndPwd(@Param("username") String username, @Param("password") String password) {
+    User user = userService.getByUsernameAndPwd(username, password);
     return Result.success(user);
   }
 }
