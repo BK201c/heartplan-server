@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uuget.heartplanServer.model.entity.User;
 import com.uuget.heartplanServer.service.UserService;
+import com.uuget.heartplanServer.util.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,10 +31,8 @@ public class UserController {
 
   @GetMapping("/user/{id}")
   @ApiOperation(value = "获取用户信息", notes = "根据id查询")
-  public Map<String, Object> getUserById(@PathVariable("id") Integer id) {
-    Map<String, Object> result = new HashMap(8);
+  public Result<User> getUserById(@PathVariable("id") Integer id) {
     User user = userService.getUserById(id);
-    result.put("id", user);
-    return result;
+    return Result.success(user);
   }
 }

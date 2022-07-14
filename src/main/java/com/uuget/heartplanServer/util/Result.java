@@ -1,4 +1,4 @@
-package com.uuget.heartplanServer.utils;
+package com.uuget.heartplanServer.util;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,8 +44,8 @@ public class Result<T> {
         return result;
     }
 
-    public static <T> Result<T> ok() {
-        return Result.ok(null);
+    public static <T> Result<T> success() {
+        return Result.success(null);
     }
 
     /**
@@ -55,7 +55,7 @@ public class Result<T> {
      * @param <T>
      * @return
      */
-    public static <T> Result<T> ok(T data) {
+    public static <T> Result<T> success(T data) {
         Result<T> result = build(data);
         return build(data, ResultCodeEnum.SUCCESS);
     }
@@ -76,8 +76,8 @@ public class Result<T> {
         return build(data, ResultCodeEnum.FAIL);
     }
 
-    public Result<T> message(String msg) {
-        this.setMessage(msg);
+    public Result<T> message(String message) {
+        this.setMessage(message);
         return this;
     }
 
@@ -86,7 +86,7 @@ public class Result<T> {
         return this;
     }
 
-    public boolean isOk() {
+    public boolean isSuccess() {
         if (this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) {
             return true;
         }
