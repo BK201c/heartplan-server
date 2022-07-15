@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class User {
-    private Integer id;
-    private String wechat_openid;
+    private Integer uid;
+    private String wechatOpenid;
     private String username;
     private String password;
     private String name;

@@ -8,7 +8,8 @@ import java.util.Date;
 public class UserInspection {
     private Integer id;
     private Integer uid;
-    private Integer inpection_id;
-    private Date inspection_time;
+    private Integer inpectionId;
+    private Date inspectionTime;
     private Date createdAt;
+    private Date updatedAt;
 }

@@ -38,10 +38,11 @@ public class UserController {
     return Result.success(user);
   }
 
-  @PostMapping("/user/login")
-  @ApiOperation(value = "用户登录", notes = "根据用户名和密码查询")
-  public Result<User> getByUsernameAndPwd(@Param("username") String username, @Param("password") String password) {
-    User user = userService.getByUsernameAndPwd(username, password);
-    return Result.success(user);
-  }
+  // @PostMapping("/user/login")
+  // @ApiOperation(value = "用户登录", notes = "根据用户名和密码查询")
+  // public Result<User> getByUsernameAndPwd(@Param("username") String username,
+  // @Param("password") String password) {
+  // User user = userService.getByUsernameAndPwd(username, password);
+  // return Result.success(user);
+  // }
 }

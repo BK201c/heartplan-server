@@ -2,14 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uuget.heartplanServer.model.dao.UserDao">
     <resultMap id="UserMap" type="com.uuget.heartplanServer.model.entity.User">
-        <result property="id" column="id" jdbcType="INTEGER" />
+        <result property="uid" column="uid" jdbcType="INTEGER" />
+        <result property="wechatOpenid" column="wechat_openid" jdbcType="VARCHAR" />
         <result property="username" column="username" jdbcType="VARCHAR" />
-        <result property="wechat_openid" column="wechat_openid" jdbcType="VARCHAR" />
         <result property="password" column="password" jdbcType="INTEGER" />
         <result property="name" column="name" jdbcType="VARCHAR" />
         <result property="age" column="age" jdbcType="INTEGER" />
         <result property="phone" column="phone" jdbcType="INTEGER" />
         <result property="sex" column="sex" jdbcType="VARCHAR" />
+        <result property="createdAt" column="createdAt" jdbcType="DATETIME" />
+        <result property="updatedAt" column="updatedAt" jdbcType="DATETIME" />
     </resultMap>
 
     <sql id="BaseColumnList">
@@ -26,7 +28,7 @@
         select
         <include refid="BaseColumnList"/> 
         from user 
-        where wechat_openid = #{wechat_openid}
+        where wechat_openid = #{wechatOpenid}
     </select>
     <select id="getByName" resultMap="UserMap">
         select 

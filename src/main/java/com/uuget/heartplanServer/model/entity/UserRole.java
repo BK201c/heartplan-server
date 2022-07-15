@@ -3,7 +3,7 @@ package com.uuget.heartplanServer.model.entity;
 import lombok.Data;
 
 @Data
-public class Role {
-    private Integer rid;
-    private String name;
+public class UserRole {
+  private Integer uid;
+  private Integer rid;
 }
