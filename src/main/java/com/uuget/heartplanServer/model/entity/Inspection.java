@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class Inspection {
-    private Integer id;
+    private Long id;
     private String name;
     private String remark;
     private String location;
     private String manager;
-    private String contact;
+    private Integer contact;
 }

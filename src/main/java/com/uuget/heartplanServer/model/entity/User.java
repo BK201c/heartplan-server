@@ -1,10 +1,12 @@
 package com.uuget.heartplanServer.model.entity;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
 public class User {
-    private Integer uid;
+    private Long uid;
     private String wechatOpenid;
     private String username;
     private String password;
@@ -12,6 +14,6 @@ public class User {
     private String phone;
     private String age;
     private String sex;
-    private String createdAt; // 创建时间
-    private String updatedAt; // 更新时间
+    private Date createdAt; // 创建时间
+    private Date updatedAt; // 更新时间
 }

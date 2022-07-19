@@ -7,8 +7,9 @@ import lombok.Data;
 @Data
 public class InspectionSchedule {
   private Long id;
-  private Integer inspectionId;
+  private Long inspectionId;
   private Date openDate;
+  private Integer stock_num;
   private String startTime;
   private String endTime;
 }

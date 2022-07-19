@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserRole {
-  private Integer uid;
+  private Integer id;
+  private Long uid;
   private Integer rid;
 }
